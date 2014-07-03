@@ -1,4 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+# =============================================================================
+# file = quickirc.py
+# description = This will create a header for a python script.
+# author = GR <https://github.com/shortdudey123>
+# create_date = 2014-07-02
+# mod_date = 2014-07-03
+# version = 0.1
+# usage = called as a class
+# notes =
+# python_ver = 2.6.6
+# =============================================================================
+
 import socket
 
 
