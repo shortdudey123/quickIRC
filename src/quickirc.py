@@ -18,14 +18,25 @@ class quickIRC:
         print data
         irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         irc.send("NICK "+ self.nick +"\n")
+        return
 
     def disconnect():
-        irc.send ('QUIT\r\n')
+        irc.send ('QUIT\n')
+        return
 
     def sendMessage(self, message, channels=''):
+        # connect to the irc server
         connect()
 
+        # JOIN, PRIVMSG, PART
+        for channel in self.channels:
+            irc.send("JOIN "+ channel + self.channels[channels] + "\n")
+            irc.send("PRIVMSG "+ channel + " : " + message + "\n")
+            irc.send("PART "+ channel + "\n")
+
+        # close the server connection
         disconnect()
+        return
 
     def setDefaultChannels(self, channels):
         if type(channels) = dict:
@@ -36,4 +47,7 @@ class quickIRC:
         elif type(channels) = str:
             self.channels[channels] = ''
         return
-    
+
+    def setChannelKey(self, channel, key):
+        self.channels[channel] = key
+        return
