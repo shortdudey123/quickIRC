@@ -1,6 +1,19 @@
 quickIRC
 ========
 
+Introduction
+------------
+
+quickIRC serves to allow messages to be quickly and easily posted to given channels on an IRC server.
+
+Example Uses
+------------
+
+* Monitoring scripts
+* Automated script error output
+* Posting cron job results
+* Report the start and end of a job or script
+
 References
 ----------
 * [IRC Python Bot: Best Way](http://stackoverflow.com/questions/1100840/irc-python-bot-best-way)
