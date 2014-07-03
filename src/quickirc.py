@@ -15,10 +15,17 @@ class quickIRC:
 
     def connect(self):
         self.irc.connect((self.network,self.port))
-        data = self.irc.recv (4096)
-        print data
+        data = self.irc.recv(4096)
+
+        if self.debug:
+            print getData()
+
         self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         self.irc.send("NICK "+ self.nick +"\n")
+
+        if self.debug:
+            print getData()
+
         return
 
     def disconnect():
@@ -35,6 +42,9 @@ class quickIRC:
             self.irc.send("JOIN "+ channel + self.channels[channels] + "\n")
             self.irc.send("PRIVMSG "+ channel + " : " + message + "\n")
             self.irc.send("PART "+ channel + "\n")
+
+            if self.debug:
+                print getData()
 
         # close the server connection
         disconnect()
@@ -57,3 +67,7 @@ class quickIRC:
     def setDebug(self, debug):
         self.debug = debug
         return
+
+    def getData(self):
+        data = self.irc.recv(4096)
+        return data
