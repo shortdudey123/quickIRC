@@ -16,12 +16,13 @@ import socket
 
 class quickIRC:
 
-    def __init__(self, server, port=6667, nick="quickIRC"):
+    def __init__(self, server, port=6667, nick="quickIRC", identify=''):
         self.server = server
         self.port = port
         self.nick = nick
         self.channels = {}
         self.debug = False
+        self.identify = identify
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -34,6 +35,9 @@ class quickIRC:
 
         self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         self.irc.send("NICK "+ self.nick +"\n")
+
+        if self.identify != '':
+            self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
 
         if self.debug:
             print getData()
