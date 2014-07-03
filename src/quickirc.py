@@ -9,6 +9,7 @@ class quickIRC:
         self.port = port
         self.nick = nick
         self.channels = {}
+        self.debug = False
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -16,12 +17,13 @@ class quickIRC:
         self.irc.connect((self.network,self.port))
         data = self.irc.recv (4096)
         print data
-        irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
-        irc.send("NICK "+ self.nick +"\n")
+        self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
+        self.irc.send("NICK "+ self.nick +"\n")
         return
 
     def disconnect():
-        irc.send ('QUIT\n')
+        self.irc.send('QUIT\n')
+        self.irc.close()
         return
 
     def sendMessage(self, message, channels=''):
@@ -51,3 +53,6 @@ class quickIRC:
     def setChannelKey(self, channel, key):
         self.channels[channel] = key
         return
+
+    def setDebug(self, debug):
+        self.debug = debug
