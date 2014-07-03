@@ -32,9 +32,9 @@ class quickIRC:
 
         # JOIN, PRIVMSG, PART
         for channel in self.channels:
-            irc.send("JOIN "+ channel + self.channels[channels] + "\n")
-            irc.send("PRIVMSG "+ channel + " : " + message + "\n")
-            irc.send("PART "+ channel + "\n")
+            self.irc.send("JOIN "+ channel + self.channels[channels] + "\n")
+            self.irc.send("PRIVMSG "+ channel + " : " + message + "\n")
+            self.irc.send("PART "+ channel + "\n")
 
         # close the server connection
         disconnect()
@@ -56,3 +56,4 @@ class quickIRC:
 
     def setDebug(self, debug):
         self.debug = debug
+        return
