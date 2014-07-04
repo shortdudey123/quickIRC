@@ -67,12 +67,12 @@ class quickIRC:
         return
 
     def setDefaultChannels(self, channels):
-        if type(channels) = dict:
+        if type(channels) == dict:
             self.channels = channels
-        elif type(channels) = list:
+        elif type(channels) == list:
             for channel in channels:
                 self.channels[channel] = ''
-        elif type(channels) = str:
+        elif type(channels) == str:
             self.channels[channels] = ''
         return
 
