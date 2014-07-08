@@ -16,12 +16,12 @@ import socket
 
 class quickIRC:
 
-    def __init__(self, server, port=6667, nick="quickIRC", identify=''):
+    def __init__(self, server, port=6667, nick="quickIRC", identify='', debug=False):
         self.server = server
         self.port = port
         self.nick = nick
         self.channels = {}
-        self.debug = False
+        self.debug = debug
         self.identify = identify
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
