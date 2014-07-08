@@ -8,7 +8,7 @@
 # version = 0.1
 # usage = called as a class
 # notes =
-# python_ver = 2.6.6
+# python_ver = 2.7.6
 # =============================================================================
 
 import socket

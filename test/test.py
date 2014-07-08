@@ -8,7 +8,7 @@
 # version = 0.1
 # usage = test for quickIRC class
 # notes =
-# python_ver = 2.6.6
+# python_ver = 2.7.6
 # =============================================================================
 
 
