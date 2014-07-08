@@ -44,6 +44,9 @@ class quickIRC:
         if self.identify != '':
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
 
+        # need to wait for the server to respond
+        time.sleep(self.connectDelay)
+
         if self.debug:
             print self.getData()
             print "~~~~~~~~~~~~~~"
