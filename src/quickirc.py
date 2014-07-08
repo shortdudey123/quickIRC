@@ -61,6 +61,10 @@ class quickIRC:
 
         # JOIN, PRIVMSG, PART
         for channel in self.channels:
+
+            if self.debug:
+                print "*** Sending message in {0} ***".format(channel)
+
             self.irc.send("JOIN "+ channel + self.channels[channel] + "\n")
             self.irc.send("PRIVMSG "+ channel + " : " + message + "\n")
             self.irc.send("PART "+ channel + "\n")
