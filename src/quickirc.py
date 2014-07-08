@@ -66,7 +66,7 @@ class quickIRC:
         self.disconnectFromServer()
         return
 
-    def setDefaultChannels(self, channels):
+    def setDefaultChannels(self):
         if type(channels) == dict:
             self.channels = channels
         elif type(channels) == list:
