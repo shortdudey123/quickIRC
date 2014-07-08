@@ -29,7 +29,9 @@ class quickIRC:
 
     def connectToServer(self):
         self.irc.connect((self.server,self.port))
-        data = self.irc.recv(4096)
+
+        # need to wait for the server to respond
+        time.sleep(1)
 
         if self.debug:
             print self.getData()
