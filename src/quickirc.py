@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # =============================================================================
 # file = quickirc.py
-# description = This will create a header for a python script.
+# description = Quickly and easily post messages to an IRC server
 # author = GR <https://github.com/shortdudey123>
 # create_date = 2014-07-02
 # mod_date = 2014-07-03
@@ -26,12 +26,12 @@ class quickIRC:
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    def connect(self):
+    def connectToServer(self):
         self.irc.connect((self.network,self.port))
         data = self.irc.recv(4096)
 
         if self.debug:
-            print getData()
+            print self.getData()
 
         self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         self.irc.send("NICK "+ self.nick +"\n")
@@ -40,18 +40,18 @@ class quickIRC:
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
 
         if self.debug:
-            print getData()
+            print self.getData()
 
         return
 
-    def disconnect():
+    def disconnectFromServer():
         self.irc.send('QUIT\n')
         self.irc.close()
         return
 
     def sendMessage(self, message, channels=''):
         # connect to the irc server
-        connect()
+        self.connectToServer()
 
         # JOIN, PRIVMSG, PART
         for channel in self.channels:
@@ -60,10 +60,10 @@ class quickIRC:
             self.irc.send("PART "+ channel + "\n")
 
             if self.debug:
-                print getData()
+                print self.getData()
 
         # close the server connection
-        disconnect()
+        self.disconnectFromServer()
         return
 
     def setDefaultChannels(self, channels):
