@@ -14,6 +14,11 @@ Example Uses
 * Posting cron job results
 * Report the start and end of a job or script
 
+Notes
+-----
+
+If the IRC network you are connecting to is globally distributed, the connectDelay may need to be as high as 5 seconds.  (Example - Freenode needs 4-5 seconds)  For local or geographically located servers the delay can be less.  Individual results will very so testing of different values should be done before this is fully implemented.
+
 References
 ----------
 * [IRC Python Bot: Best Way](http://stackoverflow.com/questions/1100840/irc-python-bot-best-way)
