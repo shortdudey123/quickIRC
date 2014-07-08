@@ -12,6 +12,7 @@
 # =============================================================================
 
 import socket
+import time
 
 
 class quickIRC:
@@ -35,6 +36,9 @@ class quickIRC:
 
         self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         self.irc.send("NICK "+ self.nick +"\n")
+
+        # need to wait for the server to respond
+        time.sleep(1)
 
         if self.identify != '':
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
