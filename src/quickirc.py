@@ -89,5 +89,6 @@ class quickIRC:
         return
 
     def getData(self):
-        data = self.irc.recv(4096)
+        # 16kb buffer allows for huge messages (i.e. MOTD)
+        data = self.irc.recv(16384)
         return data
