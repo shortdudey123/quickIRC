@@ -17,13 +17,14 @@ import time
 
 class quickIRC:
 
-    def __init__(self, server, port=6667, nick="quickIRC", identify='', debug=False):
+    def __init__(self, server, port=6667, nick="quickIRC", identify='', debug=False, connectDelay=2):
         self.server = server
         self.port = port
         self.nick = nick
         self.channels = {}
         self.debug = debug
         self.identify = identify
+        self.connectDelay = connectDelay
 
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -31,22 +32,21 @@ class quickIRC:
         self.irc.connect((self.server,self.port))
 
         # need to wait for the server to respond
-        time.sleep(2)
+        time.sleep(self.connectDelay)
 
         if self.debug:
             print self.getData()
+            print "~~~~~~~~~~~~~~"
 
         self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
         self.irc.send("NICK "+ self.nick +"\n")
-
-        # need to wait for the server to respond
-        time.sleep(2)
 
         if self.identify != '':
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
 
         if self.debug:
             print self.getData()
+            print "~~~~~~~~~~~~~~"
 
         return
 
@@ -71,6 +71,7 @@ class quickIRC:
 
             if self.debug:
                 print self.getData()
+                print "~~~~~~~~~~~~~~"
 
         # close the server connection
         self.disconnectFromServer()
