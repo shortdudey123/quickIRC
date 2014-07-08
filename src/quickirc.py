@@ -40,7 +40,7 @@ class quickIRC:
         self.irc.send("NICK "+ self.nick +"\n")
 
         # need to wait for the server to respond
-        time.sleep(1)
+        time.sleep(2)
 
         if self.identify != '':
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
