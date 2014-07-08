@@ -31,7 +31,7 @@ class quickIRC:
         self.irc.connect((self.server,self.port))
 
         # need to wait for the server to respond
-        time.sleep(1)
+        time.sleep(2)
 
         if self.debug:
             print self.getData()
