@@ -27,7 +27,7 @@ class quickIRC:
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connectToServer(self):
-        self.irc.connect((self.network,self.port))
+        self.irc.connect((self.server,self.port))
         data = self.irc.recv(4096)
 
         if self.debug:
