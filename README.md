@@ -1,6 +1,8 @@
 quickIRC
 ========
 
+[![Code Health](https://landscape.io/github/shortdudey123/quickIRC/master/landscape.svg)](https://landscape.io/github/shortdudey123/quickIRC/master)
+
 Introduction
 ------------
 

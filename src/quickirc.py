@@ -29,7 +29,7 @@ class quickIRC:
         self.irc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connectToServer(self):
-        self.irc.connect((self.server,self.port))
+        self.irc.connect((self.server, self.port))
 
         # need to wait for the server to respond
         time.sleep(self.connectDelay)
@@ -38,8 +38,8 @@ class quickIRC:
             print self.getData()
             print "~~~~~~~~~~~~~~"
 
-        self.irc.send("USER "+ self.nick +" "+ self.nick +" "+ self.nick +" :quickIRC message bot\n")
-        self.irc.send("NICK "+ self.nick +"\n")
+        self.irc.send("USER " + self.nick + " " + self.nick + " " + self.nick + " :quickIRC message bot\n")
+        self.irc.send("NICK " + self.nick + "\n")
 
         if self.identify != '':
             self.irc.send("PRIVMSG nickserv :identify {0} {1}\r\n".format(self.nick, self.identify))
@@ -68,9 +68,9 @@ class quickIRC:
             if self.debug:
                 print "*** Sending message in {0} ***".format(channel)
 
-            self.irc.send("JOIN "+ channel + self.channels[channel] + "\n")
-            self.irc.send("PRIVMSG "+ channel + " : " + message + "\n")
-            self.irc.send("PART "+ channel + "\n")
+            self.irc.send("JOIN " + channel + self.channels[channel] + "\n")
+            self.irc.send("PRIVMSG " + channel + " : " + message + "\n")
+            self.irc.send("PART " + channel + "\n")
 
             if self.debug:
                 print self.getData()

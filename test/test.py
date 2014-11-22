@@ -18,6 +18,6 @@ site.addsitedir("../src")
 from quickirc import *
 
 if __name__ == "__main__":
-	q = quickIRC(server="chat.freenode.net", port=6667, nick="quickIRC", debug=True, connectDelay=4)
-	q.setDefaultChannels("#quickirc")
-	q.sendMessage("Test")
+    q = quickIRC(server="chat.freenode.net", port=6667, nick="quickIRC", debug=True, connectDelay=4)
+    q.setDefaultChannels("#quickirc")
+    q.sendMessage("Test")
