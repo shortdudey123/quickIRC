@@ -15,7 +15,7 @@ import socket
 import time
 
 
-class quickIRC:
+class quickIRC(object):
 
     def __init__(self, server, port=6667, nick="quickIRC", identify='', debug=False, connectDelay=2):
         self.server = server
@@ -59,11 +59,18 @@ class quickIRC:
         return
 
     def sendMessage(self, message, channels=''):
+        if type(channels) == str:
+            channels = [channels]
+
         # connect to the irc server
         self.connectToServer()
 
+        all_channels = self.channels
+        if channels != ['']:
+            all_channels = all_channels + channels
+
         # JOIN, PRIVMSG, PART
-        for channel in self.channels:
+        for channel in all_channels:
 
             if self.debug:
                 print "*** Sending message in {0} ***".format(channel)
